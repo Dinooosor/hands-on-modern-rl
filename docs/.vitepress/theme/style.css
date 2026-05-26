@@ -1724,3 +1724,25 @@ html {
     padding: 12px 16px;
   }
 }
+
+/* 修复 KaTeX 在 VitePress 中的 tag 编号重叠问题 */
+.vp-doc .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.vp-doc .katex-display > .katex {
+  display: block;
+  text-align: center;
+  width: 100%; 
+}
+
+/* 强制把 (6.1) 这样的 tag 编号推到最右侧，防止被主公式挤压 */
+.vp-doc .katex-display .tag {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
